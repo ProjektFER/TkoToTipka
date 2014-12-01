@@ -1,12 +1,10 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Početna";
 }
 
-<div class="jumbotron">
-    <h1>Tko to tipka? </h1>
+@section AddToHead{
+    <link href="@Url.Content("~/Content/Index.css")" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/animateCursor.js"></script>
+}
 
-</div>
-
-<div class="row">
-  
-</div>
+<span> > Tko to tipka?</span><span id="cursor">_</span>

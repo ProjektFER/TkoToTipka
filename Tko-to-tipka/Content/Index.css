@@ -1,0 +1,26 @@
+﻿.contentBox {
+    text-align:center;
+    margin-top: 10%;    
+    color: orange;
+    font-size: 45px;
+    font-family: Consolas;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media all and (max-device-width: 720px){
+    .contentBox {
+        font-size: 45px;
+    }
+}
+
+@media all and (max-device-width: 640px){
+    .contentBox {
+        font-size: 40px;
+    }
+}
+
+@media all and (max-device-width: 320px){
+    .contentBox {
+        font-size: 30px;
+    }
+}

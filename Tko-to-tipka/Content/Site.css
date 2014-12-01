@@ -1,9 +1,18 @@
 ﻿body {
     padding-top: 70px;
     padding-bottom: 70px;
+    background-color: white; 
+    color: white; 
+    background: url(/Content/img/typing_4.jpg) no-repeat center center fixed;
+        -moz-background-size: cover; 
+        -webkit-background-size: cover; 
+        -o-background-size: cover;
+    background-size: cover;
 }
 
-html,body{height:100%;}
+html,body {
+    height:100%;
+}
 
 .container {
     height:100%;
@@ -27,4 +36,37 @@ input,
 select,
 textarea {
     
+}
+
+.navbar {
+    background-color: #1C2126;
+    opacity: 0.9;
+}
+
+.contentBox {
+    width: 70%;
+    height: auto;
+    padding: 5%;
+    margin: auto auto 10%;
+    background-color: rgba(0, 0, 0, 0.8);   
+    min-width: 150px; 
+}
+
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+.wrapper {
+	min-height: 100%;
+	height: auto !important; 
+	height: 100%;
+	margin: 0 auto -30px;
+}
+.footer, .push {
+    width: 80%;
+    margin: 0 auto 5px;
+    text-align: center;
+	height: 30px;
 }

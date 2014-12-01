@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using System.Web.Services;
 using TkoToTipka.Models;
 
 namespace Tko_to_tipka.Controllers
@@ -52,6 +55,7 @@ namespace Tko_to_tipka.Controllers
             return View();
         }
 
+
         public ActionResult Learn()
         {
             ViewBag.InDatabase = false;
@@ -59,11 +63,52 @@ namespace Tko_to_tipka.Controllers
             return View();
         }
 
+
         public ActionResult Recognize()
         {
             ViewBag.Message = "Recognize";
-
             return View();
         }
+
+
+        public class UserInput
+        {
+            public string key_down { get; set; }
+            public double time_down { get; set; }
+            public string key_up { get; set; }
+            public double? time_up { get; set; }
+        }
+
+
+        public class UserData
+        {
+            public List<UserInput> userInput { get; set; }
+        }
+
+
+        [HttpGet]
+        public ActionResult ParseUserInput(string data)
+        {
+            var serializer = new JavaScriptSerializer();
+            var measuredInput = serializer.Deserialize<UserData>(data);
+
+            //TODO parse user data
+            //parseData(measuredInput);
+
+            // test ajax
+            String username = "Arijana";
+            double score = 90;
+
+            var result = new { username = username, score = score};
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+
+        private void parseData(UserData measuredInput)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }
