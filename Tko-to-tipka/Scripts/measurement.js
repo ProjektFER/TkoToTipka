@@ -37,22 +37,6 @@
             ajaxCall(data);
             return false;
         });
-        
-        //    $.ajax({
-        //        type: "GET",
-        //        url: serviceURL,
-        //        data: { data: JSON.stringify(data) },
-        //        contentType: "application/json; charset=utf-8",
-        //        dataType: "json",
-        //        traditional: true,
-        //        success: successFunc,
-        //        error: errorFunc
-        //    });
-      
-            return false;
-
-        //}); 
-
 });
 
 
