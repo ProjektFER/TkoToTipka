@@ -58,16 +58,58 @@ namespace Tko_to_tipka.Controllers
 
         public ActionResult Learn()
         {
-            ViewBag.InDatabase = false;
-
-            return View();
+            return View();          
         }
 
 
         public ActionResult Recognize()
         {
-            ViewBag.Message = "Recognize";
             return View();
+        }
+
+
+        public ActionResult LearningForm()
+        {
+            return View();
+        }
+
+
+        [HttpGet]
+        public ActionResult SaveUsername(string data)
+        {
+            //TODO clean user input
+            var username = data;
+
+            //TODO check if user is in database
+            Boolean inDatabase = false;
+
+            Boolean saved = false;
+
+            if (!inDatabase)
+            {
+                //TODO save to db
+                saved = true;
+            }
+
+            var result = new { saved = saved };
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+
+        [HttpGet]
+        public ActionResult SaveFirstInput(string data)
+        {
+            var serializer = new JavaScriptSerializer();
+            var measuredInput = serializer.Deserialize<UserData>(data);
+
+            //TODO parse user data
+            //parseData(measuredInput);
+
+            // save to db
+            bool saved = true;
+
+            var result = new { saved = saved };
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -95,7 +137,7 @@ namespace Tko_to_tipka.Controllers
             //TODO parse user data
             //parseData(measuredInput);
 
-            // test ajax
+            //test ajax
             String username = "Arijana";
             double score = 90;
 

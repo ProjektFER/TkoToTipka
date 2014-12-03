@@ -2,4 +2,10 @@
     ViewBag.Title = "Prepoznaj";
 }
 
-@RenderPage("~/Views/Home/Form.cshtml")
+@section AddToHead{  
+    <script src="~/Scripts/recognize.js"></script>
+    <script src="~/Scripts/measurement.js"></script>
+}
+<div id="recognizeForm">
+    @RenderPage("~/Views/Home/Form.cshtml")
+</div>

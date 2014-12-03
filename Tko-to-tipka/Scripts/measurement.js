@@ -1,66 +1,59 @@
 ﻿$(document).ready(function () {
-    measuredInput = [];
 
-    /* 
-    * Prevent copy-paste to textbox. 
-    */
-    $("#userInput").bind("cut copy paste", function (e) {
-        e.preventDefault();
-    });
+        var measuredInput = [];
+
+        /* 
+        * Prevent copy-paste to textbox. 
+        */
+        $("#userInput").bind("cut copy paste", function (e) {
+            e.preventDefault();
+        });
 
  
-    /* 
-    *  Measure and collect the keystrokes as a person is typing.
-    */
-    $("#userInput").keydown(function (e_down) {
-        //Demo:
-        //console.log("Keydown:\t" + keycode_hash[parseInt(e_down.keyCode)] + "\t" + e_down.timeStamp);
-        measuredInput.push({
-            key_down: keycode_hash[parseInt(e_down.keyCode)],
-            time_down: e_down.timeStamp
+        /* 
+        *  Measure and collect the keystrokes as a person is typing.
+        */
+        $("#userInput").keydown(function (e_down) {
+            //Demo:
+            console.log("Keydown:\t" + keycode_hash[parseInt(e_down.keyCode)] + "\t" + e_down.timeStamp);
+            measuredInput.push({
+                key_down: keycode_hash[parseInt(e_down.keyCode)],
+                time_down: e_down.timeStamp
+            });
         });
-    });
-    $("#userInput").keyup(function (e_up) {
-        //Demo:
-        //console.log("Keyup: \t" + keycode_hash[parseInt(e_up.keyCode)] + "\t" + e_up.timeStamp);
-        measuredInput.push({
-            key_up: keycode_hash[parseInt(e_up.keyCode)],
-            time_up: e_up.timeStamp
-        });
-    });
-
-
-    $("#submitBtn").click(function () {
-
-        var data = {
-            userInput: measuredInput
-        };
-
-        var serviceURL = '/Home/ParseUserInput';
-        $.ajax({
-            type: "GET",
-            url: serviceURL,
-            data: { data: JSON.stringify(data) },
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            traditional:true,
-            success: successFunc,
-            error: errorFunc
+        $("#userInput").keyup(function (e_up) {
+            //Demo:
+            console.log("Keyup: \t" + keycode_hash[parseInt(e_up.keyCode)] + "\t" + e_up.timeStamp);
+            measuredInput.push({
+                key_up: keycode_hash[parseInt(e_up.keyCode)],
+                time_up: e_up.timeStamp
+            });
         });
 
-        function successFunc(data, status) {
-            $("#resultBox").replaceWith("<p>" + data.username + " Score: " + data.score  + "</p>");
-        }
-
-        function errorFunc() {
-            $("#resultBox").append("<p>Došlo je do greške, pokušajte kasnije.</p>");
-        }
-
-        return false;
-    });
+        $("#submitBtn").click(function () {
+            var data = {
+                userInput: measuredInput
+            };
+            ajaxCall(data);
+            return false;
+        });
         
-});
+        //    $.ajax({
+        //        type: "GET",
+        //        url: serviceURL,
+        //        data: { data: JSON.stringify(data) },
+        //        contentType: "application/json; charset=utf-8",
+        //        dataType: "json",
+        //        traditional: true,
+        //        success: successFunc,
+        //        error: errorFunc
+        //    });
+      
+            return false;
 
+        //}); 
+
+});
 
 
 var keycode_hash = {

@@ -182,10 +182,13 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\json-serialize.js" />
     <Content Include="Scripts\json-serialize.min.js" />
+    <Content Include="Scripts\learn.js" />
     <Content Include="Scripts\measurement.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\recognize.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\saveFirstInput.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -203,6 +206,7 @@
     <Content Include="Views\Home\Learn.cshtml" />
     <Content Include="Views\Home\Recognize.cshtml" />
     <Content Include="Views\Home\Form.cshtml" />
+    <Content Include="Views\Home\LearningForm.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

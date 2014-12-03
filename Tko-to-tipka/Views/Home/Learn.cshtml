@@ -2,24 +2,30 @@
     ViewBag.Title = "Nauči";
 }
 
-@if (!@ViewBag.InDatabase)
-{
-    
-    
+@section AddToHead{
+    <script src="~/Scripts/learn.js"></script> 
+    <script src="~/Scripts/measurement.js"></script>
+}
+
+<div id="learnContent">
+
     <h3>Upišite username:</h3>
     <br />
     <p>
-        [objašnjenje] 
+        Ako prvi put koristite aplikaciju, upišite username kako bi sustav mogao zaključiti o kojem se korisniku radi.
+        Nakon toga, prepisat ćete zadani tekst.
     </p>
+    <br />
 
-        <form method="get">
-            <input type="text" class="form-control" placeholder="Username">
-            <br />
-            <button id="submitUsernameBtn" type="submit" class="btn">Potvrdi</button>
-        </form>
 
-}
-else
-{
-    @RenderPage("~/Views/Home/Form.cshtml")
-}
+    <form method="get">
+        <input id="username" type="text" class="form-control" placeholder="Username">
+        <br />
+        <button id="submitUsernameBtn" type="submit" class="btn">Potvrdi</button>
+    </form>
+
+    <div id="usernameResult">
+
+    </div>
+</div>
+
