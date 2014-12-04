@@ -9,7 +9,7 @@ namespace TkoToTipka.Models
     public class database
     {
 
-        public const string dbSourcePath = "C:/Users/Arijana/Documents/Visual Studio 2013/Projects/Tko-to-tipka/Tko-to-tipka/App_Data/";
+        public const string dbSourcePath = "C:/Users/Flige/Documents/";
 
         public static void CreateDatabase(string naziv)
         {
@@ -69,6 +69,22 @@ namespace TkoToTipka.Models
             return rez;
         }
 
+        public static string selectAllUsernames(string database, string tableName)
+        {
+            SQLiteConnection m_dbConnection = connectToDatabase(database);
+            string str = "";
+
+            string sql = "select distinct username from " + tableName;
+            SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
+            SQLiteDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+                str += reader["username"] + " ";
+
+            str = str.Substring(0, str.Length - 1);
+            closeDatabase(m_dbConnection);
+            return str;
+        }
        
         //postoji li osoba ciji je username xxx u bazi?
         public static bool provjera(string database, string tableName, string username)
