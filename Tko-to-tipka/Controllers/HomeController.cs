@@ -16,6 +16,7 @@ namespace Tko_to_tipka.Controllers
         {
 
             int brojac = 0;
+            
             database.CreateDatabase("database");
             database.CreateTable("database", "mjerenja");
             database.insertToDatabase("database", "mjerenja", "Tomo", brojac, "1.22", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "2.26", "26.22");
@@ -73,14 +74,18 @@ namespace Tko_to_tipka.Controllers
             return View();
         }
 
+        public class Username
+        {
+            public string username { get; set; }
+        }
 
-        [HttpGet]
-        public ActionResult SaveUsername(string data)
+
+        [HttpPost]
+        public ActionResult SaveUsername(Username data)
         {
             //TODO clean user input
             var username = data;
 
-            //TODO check if user is in database
             Boolean inDatabase = false;
 
             Boolean saved = false;
@@ -91,63 +96,68 @@ namespace Tko_to_tipka.Controllers
                 saved = true;
             }
 
+            Session["Username"] = username;
+
             var result = new { saved = saved };
-            return Json(result, JsonRequestBehavior.AllowGet);
+            return Json(result);
         }
 
 
-        [HttpGet]
-        public ActionResult SaveFirstInput(string data)
+        [HttpPost]
+        public ActionResult SaveFirstInput(UserData data)
         {
-            var serializer = new JavaScriptSerializer();
-            var measuredInput = serializer.Deserialize<UserData>(data);
+            var username = Session["Username"];
 
-            //TODO parse user data
-            //parseData(measuredInput);
+            //TODO save data to db
+            //Db.save(data);
+            //Db.save(username);
 
             // save to db
             bool saved = true;
 
             var result = new { saved = saved };
-            return Json(result, JsonRequestBehavior.AllowGet);
+            return Json(result);
         }
 
 
-        public class UserInput
+        public class Input
         {
             public string key_down { get; set; }
-            public double time_down { get; set; }
+            public string time_down { get; set; }
             public string key_up { get; set; }
-            public double? time_up { get; set; }
+            public string time_up { get; set; }
         }
 
 
         public class UserData
         {
-            public List<UserInput> userInput { get; set; }
+            public List<Input> input { get; set; }
         }
 
-
-        [HttpGet]
-        public ActionResult ParseUserInput(string data)
-        {
-            var serializer = new JavaScriptSerializer();
-            var measuredInput = serializer.Deserialize<UserData>(data);
-
-            //TODO parse user data
-            //parseData(measuredInput);
-
+        [HttpPost]
+        public ActionResult ParseUserInput(UserData data)
+        {            
             //test ajax
             String username = "Arijana";
             double score = 90;
 
+            parseData(data);
+
             var result = new { username = username, score = score};
-            return Json(result, JsonRequestBehavior.AllowGet);
+            return Json(result);
         }
 
 
         private void parseData(UserData measuredInput)
         {
+            foreach (Input item in measuredInput.input)
+            {
+                var key_down = item.key_down;
+                var key_up = item.key_up;
+                var time_down = item.time_down;
+                var time_up = item.time_up;
+            }
+
             throw new NotImplementedException();
         }
 

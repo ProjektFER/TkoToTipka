@@ -3,9 +3,9 @@
     $("#submitUsernameBtn").click(function () {
         var username = $("#username").val();
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "/Home/SaveUsername",
-            data: { data: username },
+            data: JSON.stringify({ username: username }),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             traditional: true,
@@ -13,14 +13,13 @@
                 if (data.saved) {
                     window.location.href = "/Home/LearningForm/";
                 } else {
-                    $("#usernameResult").append("Korisnik već postoji.");
+                    $("#usernameResult").replaceWith("Korisnik već postoji.");
                 }
             },
             error: function () { 
-                $("#usernameResult").append("<p>Došlo je do greške, pokušajte ponovno.</p>");
+                $("#usernameResult").replaceWith("<p>Došlo je do greške, pokušajte ponovno.</p>");
             }
         });
         return false;
     });
 });
-

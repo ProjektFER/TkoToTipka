@@ -6,7 +6,7 @@ using System.Data.SQLite;
 
 namespace TkoToTipka.Models
 {
-    public class database
+    public static class database
     {
 
         public const string dbSourcePath = "C:/Users/Arijana/Documents/Visual Studio 2013/Projects/Tko-to-tipka/Tko-to-tipka/App_Data/";

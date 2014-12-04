@@ -183,6 +183,7 @@
     <Content Include="Scripts\json-serialize.js" />
     <Content Include="Scripts\json-serialize.min.js" />
     <Content Include="Scripts\learn.js" />
+    <Content Include="Scripts\LevenshteinAlgorithm.js" />
     <Content Include="Scripts\measurement.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\recognize.js" />

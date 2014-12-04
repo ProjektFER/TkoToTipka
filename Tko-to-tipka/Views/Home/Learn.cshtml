@@ -3,6 +3,7 @@
 }
 
 @section AddToHead{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/learn.js"></script> 
     <script src="~/Scripts/measurement.js"></script>
 }
@@ -18,7 +19,7 @@
     <br />
 
 
-    <form method="get">
+    <form method="post">
         <input id="username" type="text" class="form-control" placeholder="Username">
         <br />
         <button id="submitUsernameBtn" type="submit" class="btn">Potvrdi</button>
@@ -28,4 +29,3 @@
 
     </div>
 </div>
-
