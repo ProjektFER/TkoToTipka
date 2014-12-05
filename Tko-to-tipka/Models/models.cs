@@ -9,7 +9,7 @@ namespace TkoToTipka.Models
     public class database
     {
 
-        public const string dbSourcePath = "C:/Users/Flige/Documents/";
+        public const string dbSourcePath = "C:/Users/Arijana/Documents/Visual Studio 2013/Projects/Tko-to-tipka/Tko-to-tipka/App_Data/";
 
         public static void CreateDatabase(string naziv)
         {
