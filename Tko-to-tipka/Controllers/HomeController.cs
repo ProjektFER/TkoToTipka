@@ -15,40 +15,29 @@ namespace Tko_to_tipka.Controllers
         public ActionResult Index()
         {
 
-            int brojac = 0;
-            
             database.CreateDatabase("database");
-            database.CreateTable("database", "mjerenja");
-            database.insertToDatabase("database", "mjerenja", "Tomo", brojac, "1.22", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "2.26", "26.22");
-            brojac++;
-            database.insertToDatabase("database", "mjerenja", "Tomo", brojac, "8.566", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "2.26", "28.5655");
-            brojac++;
-            database.insertToDatabase("database", "mjerenja", "Jelena", brojac, "5.5236555", "3", "3", "3", "3", "3", "3", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "2.26", "66.52455");
-            brojac++;
-            float i = database.selectAVGfromTable("database", "mjerenja", "Tomo", "TimeTyping");
-            float j = i;
-            i = database.selectAVGfromTable("database", "mjerenja", "Tomo", "A");
-            j = i;
-            i = database.selectAVGfromTable("database", "mjerenja", "Jelena", "TimeTyping");
-            j = i;
-            i = database.selectAVGfromTable("database", "mjerenja", "Jelena", "B");
-            j = i;
-            int broj = database.brojZapisaOsobe("database", "mjerenja", "Tomo");
-            j = broj;
-            bool nesto = database.provjera("database", "mjerenja", "Tomo");
-            nesto = database.provjera("database", "mjerenja", "Tomo1");
-            broj = database.brojZapisaOsobe("database", "mjerenja", "Tomo");
+            database.CreateTable("database", "user");
+            /*
+            database.insertToDatabase("database", "user", "Tomislav", 0, "cewcnuwcnuwbcvujeb cwub uwbcub w 5556 ervbcwubvcwbvwbvjwbvjsbv");
+            database.insertToDatabase("database", "user", "Tomislav", 1, "ttutututututuutbcwhb hbwhcbwubcuwebcwuebcu....5555");
+            database.insertToDatabase("database", "user", "Tomislav", 2, "gegegegeggegege427567234657325623875634789 73476578935 = 9479324573245932465732465732465");
+            database.insertToDatabase("database", "user", "Jelena", 0, "5555555");
+            database.insertToDatabase("database", "user", "Jelena", 1, "jajajajajja00000");
 
-            broj = database.brojZapisaOsobe("database", "mjerenja", "Jelena");
+            string txt = database.selectTEXTfromTable("database", "user", "Tomislav", 0);
+            txt = database.selectTEXTfromTable("database", "user", "Tomislav", 1);
+            txt = database.selectTEXTfromTable("database", "user", "Jelena", 1);
 
-            broj = database.brojZapisaOsobe("database", "mjerenja", "Tomo1");
+            string users = database.selectAllUsernames("database", "user");
 
-            database.smanjiRedniBrojZapisa("database", "mjerenja", "Tomo");
-            i = database.selectAVGfromTable("database", "mjerenja", "Tomo", "redniBrojZapisa");
-            j = i;
-            database.izbrisiRedak("database", "mjerenja", "Tomo", -1);
-            i = database.selectAVGfromTable("database", "mjerenja", "Tomo", "redniBrojZapisa");
-            broj = database.brojZapisaOsobe("database", "mjerenja", "Tomo");
+            bool true_or_false = database.provjera("database", "user", "Tomislav");
+            true_or_false = database.provjera("database", "user", "Jelena");
+            true_or_false = database.provjera("database", "user", "Arijana");
+
+            int broj = database.brojZapisaOsobe("database", "user", "Tomislav");
+            broj = database.brojZapisaOsobe("database", "user", "Jelena");
+            broj = database.brojZapisaOsobe("database", "user", "Arijana");
+             */
 
 
             ViewBag.Message = "Home page jeeej!";
@@ -108,12 +97,18 @@ namespace Tko_to_tipka.Controllers
         {
             var username = Session["Username"];
 
-            //TODO save data to db
-            //Db.save(data);
-            //Db.save(username);
-
-            // save to db
+            string json = JsonConvert.SerializeObject(data);
             bool saved = true;
+
+            try
+            {
+                int broj = database.brojZapisaOsobe("database", "user", username.ToString());
+                database.insertToDatabase("database", "user", username.ToString(), broj, json);
+            }
+            catch 
+            {
+                saved = false;
+            }
 
             var result = new { saved = saved };
             return Json(result);
