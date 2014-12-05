@@ -17,6 +17,7 @@ namespace Tko_to_tipka.Controllers
 
             database.CreateDatabase("database");
             database.CreateTable("database", "user");
+
             /*
             database.insertToDatabase("database", "user", "Tomislav", 0, "cewcnuwcnuwbcvujeb cwub uwbcub w 5556 ervbcwubvcwbvwbvjwbvjsbv");
             database.insertToDatabase("database", "user", "Tomislav", 1, "ttutututututuutbcwhb hbwhcbwubcuwebcwuebcu....5555");
@@ -38,10 +39,6 @@ namespace Tko_to_tipka.Controllers
             broj = database.brojZapisaOsobe("database", "user", "Jelena");
             broj = database.brojZapisaOsobe("database", "user", "Arijana");
              */
-
-
-            ViewBag.Message = "Home page jeeej!";
-
             return View();
         }
 
@@ -73,7 +70,7 @@ namespace Tko_to_tipka.Controllers
         public ActionResult SaveUsername(Username data)
         {
             //TODO clean user input
-            var username = data;
+            var username = data.username;
 
             Boolean inDatabase = false;
 
@@ -95,7 +92,7 @@ namespace Tko_to_tipka.Controllers
         [HttpPost]
         public ActionResult SaveFirstInput(UserData data)
         {
-            var username = Session["Username"];
+            var username = (string)Session["Username"];
 
             string json = JsonConvert.SerializeObject(data);
             bool saved = true;
