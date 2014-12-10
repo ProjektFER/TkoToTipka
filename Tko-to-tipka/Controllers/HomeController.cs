@@ -8,12 +8,19 @@ using System.Web.Script.Serialization;
 using System.Web.Services;
 using TkoToTipka.Models;
 
+
+
 namespace Tko_to_tipka.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
+
+            //database.CreateDatabase("database");
+            //database.CreateTable("database", "user");
+            //int br = database.brojZapisaOsobe("database", "user", "Tomo");
+           
             return View();
         }
 
