@@ -14,31 +14,6 @@ namespace Tko_to_tipka.Controllers
     {
         public ActionResult Index()
         {
-
-            database.CreateDatabase("database");
-            database.CreateTable("database", "user");
-
-            /*
-            database.insertToDatabase("database", "user", "Tomislav", 0, "cewcnuwcnuwbcvujeb cwub uwbcub w 5556 ervbcwubvcwbvwbvjwbvjsbv");
-            database.insertToDatabase("database", "user", "Tomislav", 1, "ttutututututuutbcwhb hbwhcbwubcuwebcwuebcu....5555");
-            database.insertToDatabase("database", "user", "Tomislav", 2, "gegegegeggegege427567234657325623875634789 73476578935 = 9479324573245932465732465732465");
-            database.insertToDatabase("database", "user", "Jelena", 0, "5555555");
-            database.insertToDatabase("database", "user", "Jelena", 1, "jajajajajja00000");
-
-            string txt = database.selectTEXTfromTable("database", "user", "Tomislav", 0);
-            txt = database.selectTEXTfromTable("database", "user", "Tomislav", 1);
-            txt = database.selectTEXTfromTable("database", "user", "Jelena", 1);
-
-            string users = database.selectAllUsernames("database", "user");
-
-            bool true_or_false = database.provjera("database", "user", "Tomislav");
-            true_or_false = database.provjera("database", "user", "Jelena");
-            true_or_false = database.provjera("database", "user", "Arijana");
-
-            int broj = database.brojZapisaOsobe("database", "user", "Tomislav");
-            broj = database.brojZapisaOsobe("database", "user", "Jelena");
-            broj = database.brojZapisaOsobe("database", "user", "Arijana");
-             */
             return View();
         }
 
