@@ -115,7 +115,7 @@ namespace Tko_to_tipka.Controllers
             String username = "Arijana";
             double score = 90;
 
-            parseData(data);
+            //parseData(data);
 
             var result = new { username = username, score = score};
             return Json(result);

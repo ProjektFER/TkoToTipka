@@ -15,18 +15,18 @@
         */
         $("#userInput").keydown(function (e_down) {
             //Demo:
-            console.log("Keydown:\t" + e_down.key + "\t" + e_down.timeStamp);
+            console.log("Keydown:\t" + e_down.key + "\t" + Date.now());
             measuredInput.push({
                 key_down: e_down.key,
-                time_down: e_down.timeStamp
+                time_down: Date.now()
             });
         });
         $("#userInput").keyup(function (e_up) {
             //Demo:
-            console.log("Keyup: \t" + e_up.key + "\t" + e_up.timeStamp);
+            console.log("Keyup: \t" + e_up.key + "\t" + Date.now());
             measuredInput.push({
                 key_up: e_up.key,
-                time_up: e_up.timeStamp
+                time_up: Date.now()
             });
         });
 
