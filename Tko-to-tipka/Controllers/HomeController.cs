@@ -110,29 +110,22 @@ namespace Tko_to_tipka.Controllers
 
         [HttpPost]
         public ActionResult ParseUserInput(UserData data)
-        {            
-            //test ajax
-            String username = "Arijana";
-            double score = 90;
+        {
+            string json = JsonConvert.SerializeObject(data);
+
+            List<User> userList = ParseDbData.DohvatiSveUsere();
+            var query = ParseDbData.parseQuery(json);
+
+            var username = KNearestNeighbour.Initialize(userList, query);
+            
+            //return result
+           // String username = "Arijana";
+            //double score = 90;
 
             //parseData(data);
 
-            var result = new { username = username, score = score};
+            var result = new { username = username };
             return Json(result);
-        }
-
-
-        private void parseData(UserData measuredInput)
-        {
-            foreach (Input item in measuredInput.input)
-            {
-                var key_down = item.key_down;
-                var key_up = item.key_up;
-                var time_down = item.time_down;
-                var time_up = item.time_up;
-            }
-
-            throw new NotImplementedException();
         }
 
 

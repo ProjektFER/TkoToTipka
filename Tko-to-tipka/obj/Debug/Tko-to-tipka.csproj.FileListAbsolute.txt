@@ -51,7 +51,6 @@ D:\FER\Projekt\GitHub\TkoToTipka\Tko-to-tipka\bin\System.Web.WebPages.Deployment
 D:\FER\Projekt\GitHub\TkoToTipka\Tko-to-tipka\bin\System.Web.WebPages.Razor.xml
 D:\FER\Projekt\GitHub\TkoToTipka\Tko-to-tipka\bin\Antlr3.Runtime.pdb
 D:\FER\Projekt\GitHub\TkoToTipka\Tko-to-tipka\bin\Newtonsoft.Json.xml
-D:\FER\Projekt\GitHub\TkoToTipka\Tko-to-tipka\obj\Debug\Tko-to-tipka.csprojResolveAssemblyReference.cache
 D:\FER\Projekt\GitHub\TkoToTipka\Tko-to-tipka\obj\Debug\Tko-to-tipka.dll
 D:\FER\Projekt\GitHub\TkoToTipka\Tko-to-tipka\obj\Debug\Tko-to-tipka.pdb
 C:\Users\Arijana\documents\visual studio 2013\Projects\Tko-to-tipka\Tko-to-tipka\bin\WebActivatorEx.dll
