@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Tko_to_tipka.Models;
+using TkoToTipka.Models;
 
 namespace Tko_to_tipka.Controllers
 {

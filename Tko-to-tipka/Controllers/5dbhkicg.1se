@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using TkoToTipka.Models;
+using Tko_to_tipka.Models;
 using Tko_to_tipka.Controllers;
+
+
 
 namespace Tko_to_tipka.Controllers
 {
 
-    public class User
+
+    /*
+    {"input":[{"key_down":"Shift","time_down":"1418161042299","key_up":null,"time_up":null}
+     ,{"key_down":"O","time_down":"1418161042577","key_up":null,"time_up":null}
+     ,{"key_down":null,"time_down":null,"key_up":"O","time_up":"1418161042673"},
+    */
+
+    class User
     {
 
         public User(double[] userStatistic, String username)
@@ -21,7 +31,7 @@ namespace Tko_to_tipka.Controllers
         public String username { get; set; }
     }
 
-    public class Unos
+    class Unos
     {
         public string user { get; set; }
         public List<string> key_down = new List<string>();
@@ -31,9 +41,9 @@ namespace Tko_to_tipka.Controllers
 
     }
 
+
     public class ParseDbData
     {
-
         public static int DohvatiBrojZapisaOsobe(string user)
         {
             int broj = database.brojZapisaOsobe("database", "user", user);
@@ -112,7 +122,6 @@ namespace Tko_to_tipka.Controllers
             return unos;
         }
 
-
         //Parsiramo podatke i stavljamo ih u odgovarajuće liste objekta
         public static Unos Parsiraj(string ulaz, string user, Unos unos)
         {
@@ -150,7 +159,6 @@ namespace Tko_to_tipka.Controllers
 
             return broj;
         }
-
 
         // funkcija racuna ukupno vrijeme tipkanja nekog unesenog teksta spremljenog u bazu
         public static double time(Unos unos)
@@ -294,6 +302,7 @@ namespace Tko_to_tipka.Controllers
 
             return userStatistic;
         }
+      
 
     }
 }
