@@ -175,3 +175,4 @@ D:\FER\Projekt\GitHub\TkoToTipka\Tko-to-tipka\bin\ko\System.Spatial.resources.dl
 D:\FER\Projekt\GitHub\TkoToTipka\Tko-to-tipka\bin\ru\System.Spatial.resources.dll
 D:\FER\Projekt\GitHub\TkoToTipka\Tko-to-tipka\bin\zh-Hans\System.Spatial.resources.dll
 D:\FER\Projekt\GitHub\TkoToTipka\Tko-to-tipka\bin\zh-Hant\System.Spatial.resources.dll
+D:\FER\Projekt\GitHub\TkoToTipka\Tko-to-tipka\obj\Debug\Tko-to-tipka.csprojResolveAssemblyReference.cache
