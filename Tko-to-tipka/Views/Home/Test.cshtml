@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Test";
+}
+@model List<Tko_to_tipka.Models.TestModel>
+@section AddToHead{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/ajaxLoader.js"></script>
+
+}
+
+<h3>Recognized patterns: <span class="orange">@ViewData["accuracy"]%</span></h3>
+<br />
+<div class="container">
+    <div class="col-md-6">
+        <div class="row outer">
+            <h4 id="record" class="col-md-6">
+                Correct:
+            </h4>
+            <h4 id="record" class="col-md-6">
+                Recognized:
+            </h4>
+            @foreach (var result in Model)
+            {
+                if (!result.matches)
+                {
+                    <div id="record" class="col-md-6 incorrect">
+                        @result.correctName
+                    </div>
+                    <div id="record" class="col-md-6 incorrect">
+                        @result.recognizedName
+                    </div>
+                }
+                else
+                {
+                    <div id="record" class="col-md-6">
+                        @result.correctName
+                    </div>
+                    <div id="record" class="col-md-6">
+                        @result.recognizedName
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

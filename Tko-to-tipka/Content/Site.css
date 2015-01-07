@@ -73,4 +73,25 @@ html, body {
 
 .results {
     text-align: center;
+    height: 120px;
+    font-size: 18px;
+}
+
+.incorrect {
+    background-color: orange;
+    color: black;    
+}
+
+.orange {
+    color: orange;
+}
+
+.typeahead {
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: 98%;
+}
+
+.loading {
+    display: none;
 }

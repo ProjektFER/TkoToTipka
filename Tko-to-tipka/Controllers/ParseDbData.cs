@@ -193,8 +193,8 @@ namespace Tko_to_tipka.Controllers
                 double[] userStatistic = new double[3];
                 String kosrsnikIme = unos.user;
                 userStatistic[0] = Convert.ToDouble(brojCapsLock(unos));
-                userStatistic[1] = Convert.ToDouble(brojShift(unos));
-                userStatistic[2] = time(unos);
+                //userStatistic[1] = Convert.ToDouble(brojShift(unos));
+                userStatistic[1] = time(unos);
                 User user = new User(userStatistic, kosrsnikIme);
                 users.Add(user);
             }
@@ -209,8 +209,8 @@ namespace Tko_to_tipka.Controllers
 
             double[] userStatistic = new double[3];
             userStatistic[0] = Convert.ToDouble(brojCapsLock(unos1));
-            userStatistic[1] = Convert.ToDouble(brojShift(unos1));
-            userStatistic[2] = time(unos1);
+            //userStatistic[1] = Convert.ToDouble(brojShift(unos1));
+            userStatistic[1] = time(unos1);
 
             return userStatistic;
         }

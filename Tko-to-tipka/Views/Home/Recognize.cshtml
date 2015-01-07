@@ -3,10 +3,19 @@
 }
 
 @section AddToHead{  
+    <script src="~/Scripts/ajaxLoader.js"></script>
     <script src="~/Scripts/recognize.js"></script>
     <script src="~/Scripts/measurement.js"></script>
     <script src="~/Scripts/LevenshteinAlgorithm.js"></script>
 }
+
+
 <div id="recognizeForm">
     @RenderPage("~/Views/Home/Form.cshtml")
+</div>
+
+<div id="loading" class="loading row results" >
+    <div class="col-md-2 col-md-offset-5">
+        <img src="/Content/gif/loader_m.gif" />
+    </div>
 </div>

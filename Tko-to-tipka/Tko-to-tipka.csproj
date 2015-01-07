@@ -156,17 +156,26 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\models.cs" />
+    <Compile Include="Models\TestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\gif\loader_bar_b.gif" />
+    <Content Include="Content\gif\loader_bar_b2.gif" />
+    <Content Include="Content\gif\loader_bar_b3.gif" />
+    <Content Include="Content\gif\loader_bar_w.gif" />
+    <Content Include="Content\gif\loader_l.gif" />
+    <Content Include="Content\gif\loader_m.gif" />
+    <Content Include="Content\gif\loader_s.gif" />
     <Content Include="Content\img\typing_4.jpg" />
     <Content Include="Content\Index.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\ajaxLoader.js" />
     <Content Include="Scripts\animateCursor.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -210,6 +219,7 @@
     <Content Include="Views\Home\Recognize.cshtml" />
     <Content Include="Views\Home\Form.cshtml" />
     <Content Include="Views\Home\LearningForm.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

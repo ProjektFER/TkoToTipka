@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Web.Services;
 using TkoToTipka.Models;
+using Tko_to_tipka.Models;
 
 
 
@@ -14,6 +15,7 @@ namespace Tko_to_tipka.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
 
@@ -24,18 +26,24 @@ namespace Tko_to_tipka.Controllers
             return View();
         }
 
-
         public ActionResult Learn()
         {
             return View();          
         }
-
 
         public ActionResult Recognize()
         {
             return View();
         }
 
+        public ActionResult Test()
+        {
+            List<User> userList = ParseDbData.DohvatiSveUsere();
+            List<TestModel> results = KNearestNeighbour.Test(userList);
+            String accuracy = String.Format("{0:N2}", getAccuracy(results));
+            ViewData["accuracy"] = accuracy;
+            return View(results);
+        }
 
         public ActionResult LearningForm()
         {
@@ -102,7 +110,6 @@ namespace Tko_to_tipka.Controllers
             public string time_up { get; set; }
         }
 
-
         public class UserData
         {
             public List<Input> input { get; set; }
@@ -112,21 +119,25 @@ namespace Tko_to_tipka.Controllers
         public ActionResult ParseUserInput(UserData data)
         {
             string json = JsonConvert.SerializeObject(data);
-
             List<User> userList = ParseDbData.DohvatiSveUsere();
             var query = ParseDbData.parseQuery(json);
-
-            var username = KNearestNeighbour.Initialize(userList, query);
-            
-            //return result
-           // String username = "Arijana";
-            //double score = 90;
-
-            //parseData(data);
-
+            var username = KNearestNeighbour.Recognize(userList, query);
             var result = new { username = username };
             return Json(result);
         }
+
+
+        private double getAccuracy(List<TestModel> results) 
+        {
+            int correct = 0;
+            foreach (TestModel item in results)
+            {
+                if (item.correctName.Equals(item.recognizedName))
+                    correct++;
+            }
+            return (correct / (double)results.Count()) * 100;
+        }
+
 
 
     }
